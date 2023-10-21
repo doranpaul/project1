@@ -1,28 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Image, StatusBar } from 'react-native';
 import MaterialIcon from 'react-native-ico-material-design';
 import Lodgicon from 'react-native-ico-lodgicons';
 import Icon from 'react-native-ico';
-import { Image } from 'react-native';
-import HomeScreen from './HomeScreen';
-import MindfulnessScreen from './MindfulnessScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import SignInScreen from './src/screens/SignInScreen';
 
-var iconHeight = 26;
-var iconWidth = 26;
 
-export default class App extends React.Component {
-state = {
-  screenText: 'Welcome to Soothe'
-}
-changeText = (text) => {
-  console.log(text + ' has been pressed')
-  this.setState({
-    screenText: text
-  })
-}
+
+
+const Stack = createStackNavigator();
+
+class HomeScreen extends React.Component {
+  state = {
+    screenText: 'Welcome to Soothe'
+  }
+
+  handleLogin = () => {
+    this.props.navigation.navigate('SignIn');
+  }
+
+  changeText = (text) => {
+    console.log(text + ' has been pressed');
+    this.setState({
+      screenText: text
+    });
+  }
 
   render(){
+  const iconHeight = 26;
+  const iconWidth = 26;
   return (
     <View style={styles.container}>
 
@@ -35,7 +43,7 @@ changeText = (text) => {
             
             {/* Grouping Image and Text together */}
             <View style={styles.centerContent}>
-              <Image source={require('./assets/reactlogo.png')} style={styles.logoImage} />
+              <Image source={require('./assets/images/reactlogo.png')} style={styles.logoImage} />
               <Text style={styles.overlayText}>{this.state.screenText}</Text>
               <StatusBar style="light" />
             </View>
@@ -71,7 +79,24 @@ changeText = (text) => {
   );
 }
 }
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="SignIn" component={SignInScreen} options={{ title: 'Sign In' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
 const styles = StyleSheet.create({
+
+  root:{
+    backgroundColor: '#5a4fcf',
+  },
+
   container: {
     flex: 1,
     backgroundColor: '#5a4fcf',
@@ -107,10 +132,12 @@ const styles = StyleSheet.create({
 },
 
 centerContent: {
+  flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '10',
+  padding: 10,
 },
+
 
 topBar: {
   flexDirection: 'row',
