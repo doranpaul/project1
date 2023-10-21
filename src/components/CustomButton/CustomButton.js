@@ -23,21 +23,25 @@ const styles = StyleSheet.create({
         color: '#5a4fcf',
         fontWeight:'bold',
         alignSelf: 'center',
+        textAlignVertical:'auto',
+        fontSize:18
     },
 
     container_PRIMARY: {
         backgroundColor: 'grey',
+        height:50
     },
 
     container_TERTIARY: {
-        backgroundColor: 'transparent',   // No background for tertiary button
-        padding: 0,                       // Remove or reduce padding if needed
-        borderWidth: 0,                   // No border
+        backgroundColor: 'transparent',
+        padding: 0,                       
+        borderWidth: 0,
     },
 
     text_TERTIARY:{
         color: 'whitesmoke',
         fontWeight:'light',
+        fontSize:12
     },
 });
 
