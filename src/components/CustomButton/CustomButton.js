@@ -1,12 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 
-const CustomButton = ({onPress, text, type = "PRIMARY"}) => {
+const CustomButton = ({ onPress, text, linkText, type = "PRIMARY" }) => {
     return (
-        <Pressable onPress={onPress} style={[styles.container, styles[`container_${type}`]]}>
-            <Text style={[styles.text, styles[`text_${type}`]]}>{text}</Text>
+        <Pressable onPress={!linkText ? onPress : undefined} style={[styles.container, styles[`container_${type}`]]}>
+            <Text style={[styles.text, styles[`text_${type}`]]}>
+                {text.replace(linkText, '')}
+                {linkText && (
+                    <Text 
+                        onPress={onPress}
+                        style={[styles.linkText, styles[`text_${type}`]]}>
+                        {linkText}
+                    </Text>
+                )}
+            </Text>
         </Pressable>
-    )
+    );
 };
 
 const styles = StyleSheet.create({
@@ -42,6 +51,12 @@ const styles = StyleSheet.create({
         color: 'whitesmoke',
         fontWeight:'light',
         fontSize:12
+    },
+
+    linkText: {
+        //color: 'blue',
+        textDecorationLine: 'underline',
+        
     },
 });
 
