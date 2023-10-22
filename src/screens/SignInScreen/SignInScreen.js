@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import { View, Text, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, useWindowDimensions, ScrollView, TouchableOpacity } from 'react-native';
 import reactlogo from '../../../assets/images/reactlogo.png';
 import CustomInput from '../../components/CustomInput';
-import CustomButton from '../../components/CustomButton/CustomButton';
+import CustomButton from '../../components/CustomButton';
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
@@ -19,8 +19,8 @@ const SignInScreen = () => {
     };
 
     const onDontHaveAccount = () => {
-        console.log("No account pressed")
-    };
+        navigation.navigate('Register');
+      };
 
     return(
     <ScrollView style={styles.scrollView}>
@@ -61,10 +61,12 @@ const SignInScreen = () => {
             />
         
             <CustomButton 
-            text="Don't have an account? Sign up?" 
+            text="Don't have an account? "
+            linkText="Register now?"
             onPress={onDontHaveAccount}
             type="TERTIARY"
             />
+
             </View>
         </View>
     </ScrollView>
