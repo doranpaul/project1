@@ -16,6 +16,7 @@ const SignInScreen = ({ navigation }) => {
 
     const onForgotPasswordPressed = () => {
         console.log("Forgot password pressed")
+        navigation.navigate('Forgot Password');
     };
 
     const onDontHaveAccount = () => {

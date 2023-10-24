@@ -38,19 +38,32 @@ const styles = StyleSheet.create({
 
     container_PRIMARY: {
         backgroundColor: 'grey',
-        height:50
+        height:50,
+        marginVertical:-5,
     },
 
+    container_SECONDARY: {
+        marginTop:0,
+        marginVertical:10,
+        borderColor: 'grey',
+        borderWidth: 2,
+    },
+    
     container_TERTIARY: {
         backgroundColor: 'transparent',
         padding: 0,                       
         borderWidth: 0,
+        marginVertical:15,
     },
 
     text_TERTIARY:{
         color: 'whitesmoke',
         fontWeight:'light',
         fontSize:12
+    },
+
+    text_SECONDARY:{
+        color: 'white',
     },
 
     linkText: {

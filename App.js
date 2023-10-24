@@ -7,7 +7,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import SignInScreen from './src/screens/SignInScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
-
+import ConfirmEmailScreen from './src/screens/ConfirmEmailScreen';
+import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
+import ResetPasswordScreen from './src/screens/ResetPasswordScreen';
 
 
 
@@ -104,6 +106,9 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignIn" component={SignInScreen} options={{ title: 'Sign In' }} />
         <Stack.Screen name="Register" component={RegisterScreen} options={{ title: 'Register' }} />
+        <Stack.Screen name="Confirm Email" component={ConfirmEmailScreen} options={{ title: 'Confirm Email' }} />
+        <Stack.Screen name="Forgot Password" component={ForgotPasswordScreen} options={{ title: 'Forgot Password' }} />
+        <Stack.Screen name="Reset Password" component={ResetPasswordScreen} options={{ title: 'Reset Password' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

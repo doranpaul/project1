@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, useWindowDimensions, ScrollView, Touchab
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -16,14 +16,20 @@ const SignInScreen = () => {
 
     const onSignInPressed = () => {
         console.log("Sign in pressed")
+        navigation.navigate('SignIn');
     };
 
-    const onForgotPasswordPressed = () => {
-        console.log("Forgot password pressed")
+    const onRegisterPressed = () => {
+        console.log("Register pressed")
+        navigation.navigate('Confirm Email')
     };
 
-    const onDontHaveAccount = () => {
-        console.log("No account pressed")
+    const onTermsOfUsePressed = () => {
+        console.log("Terms of use pressed")
+    };
+
+    const onPrivacyPressed = () => {
+        console.log("Privacy policy pressed")
     };
 
     return(
@@ -71,23 +77,28 @@ const SignInScreen = () => {
                     secureTextEntry={true}
                 />
 
+                <View style={styles.buttonContainer}>
+                    <CustomButton 
+                    text="Register" 
+                    onPress={onRegisterPressed}
+                    />
+
+                    <Text style={styles.text}>
+                    By registering you confirm you have read our <Text style={styles.link} onPress={onTermsOfUsePressed}>Terms of 
+                    use</Text> and <Text style={styles.link} onPress={onPrivacyPressed}>Privacy Policy.</Text>
+                    </Text>
+                </View>
+
                 <CustomButton 
-                    text="By registering you confirm you have read our "
-                    linkText="Terms of use and Privacy Policy."
-                    onPress={onDontHaveAccount}
-                    type="TERTIARY"
+                text="Already have an account? "
+                linkText="Sign in?"
+                onPress={onSignInPressed}
+                type="TERTIARY"
                 />
-            </View>
 
-            <View style={styles.buttonContainer}>
-            <CustomButton 
-            text="Register" 
-            onPress={onSignInPressed}
-            />
-
+                </View>
             </View>
-        </View>
-    </ScrollView>
+        </ScrollView>
         
     );
 };
@@ -127,7 +138,21 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         marginTop: 60,  // Adjust margin as needed
         position: 'absolute'
-    }
+    },
+
+    text: {
+        color:'whitesmoke',
+        fontSize: 12,
+        marginVertical:20,
+    },
+
+    link: {
+        fontSize:12,
+        color:'whitesmoke',
+        textDecorationLine: 'underline',
+
+    },
+
 });
 
 
