@@ -102,7 +102,7 @@ class HomeScreen extends React.Component {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignIn" component={SignInScreen} options={{ title: 'Sign In' }} />
         <Stack.Screen name="Register" component={RegisterScreen} options={{ title: 'Register' }} />

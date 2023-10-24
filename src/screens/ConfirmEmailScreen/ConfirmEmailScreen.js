@@ -18,7 +18,7 @@ const ConfirmEmailScreen = ({ navigation}) => {
     };
 
     const onResendCodePressed = () => {
-        console.log("Sign in pressed")
+        console.log("Resend code pressed")
     };
 
     return(
