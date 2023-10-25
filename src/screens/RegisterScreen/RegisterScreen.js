@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { View, Text, Image, StyleSheet, useWindowDimensions, ScrollView, TouchableOpacity } from 'react-native';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
+import sootheGPTLogo from '../../../assets/images/sootheGPTlogo.png';
 
 const SignInScreen = ({ navigation}) => {
     const [username, setUsername] = useState('');
@@ -33,6 +34,7 @@ const SignInScreen = ({ navigation}) => {
     };
 
     return(
+        
     <ScrollView style={styles.scrollView}>
         
         <View>
@@ -152,6 +154,7 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
 
     },
+
 
 });
 

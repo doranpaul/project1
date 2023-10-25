@@ -10,6 +10,8 @@ import RegisterScreen from './src/screens/RegisterScreen';
 import ConfirmEmailScreen from './src/screens/ConfirmEmailScreen';
 import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
 import ResetPasswordScreen from './src/screens/ResetPasswordScreen';
+import InitialRegistrationScreen from './src/screens/InitialRegistrationScreen';
+import LoggedInHomeScreen from './src/screens/LoggedInHomeScreen';
 
 
 
@@ -17,7 +19,7 @@ const Stack = createStackNavigator();
 
 class HomeScreen extends React.Component {
   state = {
-    screenText: 'Welcome to Soothe'
+    screenText: ' '
   }
 
   handleLogin = () => {
@@ -56,7 +58,7 @@ class HomeScreen extends React.Component {
     <View style={styles.container}>
 
             <View style={styles.topBar}>
-                <Text style={styles.appName}>SOOTHE||WELLNESS</Text>
+            <Image source={require('./assets/images/sootheGPTlogo.png')} style={styles.logoWriting} />
                 <Pressable onPress={this.handleLogin} style={styles.loginButton}>
                     <Text style={styles.loginText}>Login</Text>
                 </Pressable>
@@ -64,7 +66,7 @@ class HomeScreen extends React.Component {
             
             {/* Grouping Image and Text together */}
             <View style={styles.centerContent}>
-              <Image source={require('./assets/images/reactlogo.png')} style={styles.logoImage} />
+              <Image source={require('./assets/images/sootheblack.png')} style={styles.logoImage} />
               <Text style={styles.blurbText}>{this.state.screenText}</Text>
               <StatusBar style="light" />
             </View>
@@ -109,6 +111,8 @@ export default function App() {
         <Stack.Screen name="Confirm Email" component={ConfirmEmailScreen} options={{ title: 'Confirm Email' }} />
         <Stack.Screen name="Forgot Password" component={ForgotPasswordScreen} options={{ title: 'Forgot Password' }} />
         <Stack.Screen name="Reset Password" component={ResetPasswordScreen} options={{ title: 'Reset Password' }} />
+        <Stack.Screen name="Initial Registration" component={InitialRegistrationScreen} options={{ title: 'Initial Registration' }} />
+        <Stack.Screen name="User Home" component={LoggedInHomeScreen} options={{ title: 'User Home' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -148,8 +152,8 @@ const styles = StyleSheet.create({
   },
 
   logoImage: {
-    width: 500,
-    height: 500,
+    width: 400,
+    height: 400,
     marginBottom: 220,  // Adjust this value as needed
     alignItems: 'center',
 },
@@ -170,7 +174,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: 'whitesmoke',
     position: 'absolute',
-    top: 20,
+    top: 0,
     left: 0,
     right: 0,
     zIndex: 1,  // Ensure the navbar is on top of other elements
@@ -225,6 +229,12 @@ const styles = StyleSheet.create({
     // Adjust these to position the text where you want on the image
     top: '55%', 
     left: 'centre',
+  },
+  
+  logoWriting:{
+    width:100,
+    height: 40,
+    zIndex:1,
   },
 
 });

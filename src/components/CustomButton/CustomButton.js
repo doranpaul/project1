@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'grey',
         height:50,
         marginVertical:-5,
+        marginTop:30,
     },
 
     container_SECONDARY: {

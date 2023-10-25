@@ -10,6 +10,7 @@ const ConfirmEmailScreen = ({ navigation}) => {
 
     const onConfirmEmailPressed = () => {
         console.log("Confirm Email pressed")
+        navigation.navigate('Initial Registration')
     };
 
     const onSignInPressed = () => {
